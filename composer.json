@@ -1,0 +1,22 @@
+{
+    "name": "cocacoffee/querylist-rule-baidu",
+    "description": "QueryList Plugin: Baidu searcher. QueryList百度搜索插件",
+    "require": {
+        "PHP":">=7.0"
+    },
+    "require-dev": {
+        "jaeger/querylist": "^4.1"
+    },
+     "autoload": {
+        "psr-4": {
+            "QL\\Ext\\": ""
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CocaCoffee",
+            "email": "cocacoffee@vip.qq.com"
+        }
+    ]
+}
