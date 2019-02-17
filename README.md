@@ -7,7 +7,7 @@ QueryList插件：百度搜索引擎
 
 ## Installation for QueryList4
 ```
-composer require jaeger/querylist-rule-baidu
+composer require cocacoffee/querylist-rule-baidu
 ```
 
 ## API
@@ -18,6 +18,7 @@ class **Baidu**:
 - Baidu **setHttpOpt(array $httpOpt = [])**：Set the http option,see: [GuzzleHttp options](http://docs.guzzlephp.org/en/stable/request-options.html)
 - int **getCount()**:Get the total number of search results.
 - int **getCountPage()**:Get the total number of pages.
+- Collection **getSuggestions()**:Get search suggestions
 - Collection **page($page = 1,$realURL = false)**:Get search results
 
 ## Usage

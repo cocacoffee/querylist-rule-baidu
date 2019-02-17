@@ -34,7 +34,7 @@ class Baidu implements PluginContract
      *
      * @var integer
      */
-    protected $pageSize = 10;
+    protected $perPage = 10;
     
     /**
      * HTTP选项
@@ -77,12 +77,12 @@ class Baidu implements PluginContract
      * 初始化QueryList对象
      *
      * @param QueryList $queryList
-     * @param int $pageSize
+     * @param int $perPage
      */
-    public function __construct(QueryList $queryList, int $pageSize = null)
+    public function __construct(QueryList $queryList, int $perPage = null)
     {
         $this->queryList = $queryList->rules(self::RULES)->range(self::RANGE);
-        $this->pageSize = $pageSize;
+        $this->perPage = $perPage;
     }
 
     /**
@@ -94,8 +94,8 @@ class Baidu implements PluginContract
     public static function install(QueryList $queryList, ...$opt)
     {
         $name = $opt[0] ?? 'baidu';
-        $queryList->bind($name, function ($pageSize = 10) {
-            return new Baidu($this, $pageSize);
+        $queryList->bind($name, function ($perPage = 10) {
+            return new Baidu($this, $perPage);
         });
     }
 
@@ -180,7 +180,7 @@ class Baidu implements PluginContract
     public function getCountPage()
     {
         $count = $this->getCount();
-        $countPage = ceil($count / $this->pageSize);
+        $countPage = ceil($count / $this->perPage);
         
         return $countPage;
     }
@@ -195,8 +195,8 @@ class Baidu implements PluginContract
     {
         $this->queryList->get(self::API, [
             'wd' => $this->keyword,
-            'rn' => $this->pageSize,
-            'pn' => $this->pageSize * ($page - 1)
+            'rn' => $this->perPage,
+            'pn' => $this->perPage * ($page - 1)
         ], $this->httpOpt);
         
         return $this->queryList;
