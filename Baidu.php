@@ -143,7 +143,7 @@ class Baidu implements PluginContract
      *
      * @return Tightenco\Collect\Support\Collection
      */
-    public function getRelatedSearches()
+    public function getSuggestions()
     {
         // 选择器
         $table = $this->query()->find('#rs>table');

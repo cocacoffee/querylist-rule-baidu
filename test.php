@@ -8,6 +8,6 @@ use QL\Ext\Baidu;
 $queryList = QueryList::getInstance();
 $queryList->use(Baidu::class);
 $searcher = $queryList->baidu()->search('翟天临');
-$data = $searcher->getRelatedSearches();
+$data = $searcher->getSuggestions();
 
 print_r($data);
